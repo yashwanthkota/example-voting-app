@@ -10,21 +10,12 @@ pipeline {
     }
 
     stage('Build Docker Image') {
-      parallel {
         stage('Build Docker Image') {
           steps {
             sh 'cd vote && sudo docker build . -t 087108748597.dkr.ecr.us-east-1.amazonaws.com/vote:${BUILD_NUMBER}'
             sh 'sudo docker push 087108748597.dkr.ecr.us-east-1.amazonaws.com/vote:${BUILD_NUMBER}'
           }
         }
-
-        stage('Unit Testing') {
-          steps {
-            sh 'npm test'
-          }
-        }
-
-      }
     }
 
     stage('Deploy in ECS') {
