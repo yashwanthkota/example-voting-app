@@ -36,7 +36,7 @@ pipeline {
     AWS_DEFAULT_REGION = 'us-east-1'
     SERVICE_NAME = 'vote'
     TASK_FAMILY = 'vote-fargate'
-    ECS_CLUSTER = 'vote-app'
+    ECS_CLUSTER = 'vote-app-example'
   }
   post {
     always {
