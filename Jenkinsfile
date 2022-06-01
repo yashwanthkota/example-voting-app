@@ -44,7 +44,7 @@ pipeline {
       sh 'sudo docker rmi 087108748597.dkr.ecr.us-east-1.amazonaws.com/vote:${BUILD_NUMBER}'
     }
     success {
-      slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+      slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
     }
   }
   options {
