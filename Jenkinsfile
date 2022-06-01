@@ -2,6 +2,9 @@ pipeline {
   agent {
     label 'worker'
   }
+  triggers { 
+    pollSCM('* * * * *') 
+  }
   stages {
     stage('Git Checkout') {
       steps {
